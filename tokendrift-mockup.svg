@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <clipPath id="editor"><rect x="316" y="68" width="884" height="800"/></clipPath>
+  </defs>
+
+  <!-- VS Code window -->
+  <rect width="1200" height="900" fill="#1E1E2E" rx="12"/>
+
+  <!-- Title bar -->
+  <rect width="1200" height="36" fill="#11111B" rx="12"/>
+  <rect x="0" y="24" width="1200" height="12" fill="#11111B"/>
+  <!-- Traffic lights -->
+  <circle cx="18" cy="18" r="6" fill="#FF5F57"/>
+  <circle cx="38" cy="18" r="6" fill="#FEBC2E"/>
+  <circle cx="58" cy="18" r="6" fill="#28C840"/>
+  <text x="600" y="23" font-family="sans-serif" font-size="11" fill="#45475A" text-anchor="middle">styles.css — tokendrift-demo — Visual Studio Code</text>
+
+  <!-- Activity bar -->
+  <rect x="0" y="36" width="52" height="864" fill="#181825"/>
+  <!-- File icon (active) -->
+  <rect x="14" y="54" width="24" height="28" rx="3" fill="none" stroke="#CDD6F4" stroke-width="1.5"/>
+  <line x1="19" y1="62" x2="33" y2="62" stroke="#CDD6F4" stroke-width="1.5"/>
+  <line x1="19" y1="68" x2="33" y2="68" stroke="#CDD6F4" stroke-width="1.5"/>
+  <line x1="19" y1="74" x2="27" y2="74" stroke="#CDD6F4" stroke-width="1.5"/>
+  <!-- Search icon -->
+  <circle cx="26" cy="115" r="7" fill="none" stroke="#45475A" stroke-width="1.5"/>
+  <line x1="31" y1="120" x2="37" y2="126" stroke="#45475A" stroke-width="2"/>
+  <!-- Source control -->
+  <circle cx="20" cy="158" r="4" fill="none" stroke="#45475A" stroke-width="1.5"/>
+  <circle cx="32" cy="148" r="4" fill="none" stroke="#45475A" stroke-width="1.5"/>
+  <line x1="23" y1="155" x2="29" y2="151" stroke="#45475A" stroke-width="1.5"/>
+  <!-- Extensions -->
+  <rect x="14" y="188" width="10" height="10" rx="2" fill="#45475A"/>
+  <rect x="28" y="188" width="10" height="10" rx="2" fill="#45475A"/>
+  <rect x="14" y="202" width="10" height="10" rx="2" fill="#45475A"/>
+  <rect x="28" y="202" width="10" height="10" rx="2" fill="none" stroke="#89B4FA" stroke-width="1.5"/>
+  <!-- TokenDrift plugin icon -->
+  <rect x="11" y="250" width="30" height="30" rx="6" fill="#1C7DD5" opacity="0.3"/>
+  <rect x="11" y="250" width="30" height="30" rx="6" fill="none" stroke="#1C7DD5" stroke-width="1.5"/>
+  <text x="26" y="270" font-family="monospace" font-size="11" font-weight="700" fill="#89B4FA" text-anchor="middle">TD</text>
+
+  <!-- Sidebar: File Explorer -->
+  <rect x="52" y="36" width="264" height="864" fill="#181825"/>
+  <!-- Explorer header -->
+  <rect x="52" y="36" width="264" height="36" fill="#1E1E2E"/>
+  <text x="68" y="59" font-family="sans-serif" font-size="11" font-weight="700" fill="#CDD6F4" letter-spacing="0.08em">EXPLORER</text>
+  <text x="290" y="59" font-family="sans-serif" font-size="14" fill="#45475A">⋯</text>
+  <!-- Tree items -->
+  <text x="68" y="93" font-family="sans-serif" font-size="13" fill="#45475A">▶  node_modules</text>
+  <text x="68" y="117" font-family="sans-serif" font-size="13" fill="#585B70">▶  public</text>
+  <!-- src expanded -->
+  <text x="68" y="141" font-family="sans-serif" font-size="13" fill="#CDD6F4">▼  src</text>
+  <text x="88" y="165" font-family="sans-serif" font-size="13" fill="#585B70">▶  components</text>
+  <!-- styles expanded -->
+  <rect x="52" y="172" width="264" height="24" fill="#2A2A3A"/>
+  <text x="88" y="189" font-family="sans-serif" font-size="13" fill="#CDD6F4">▼  styles</text>
+  <!-- Active file -->
+  <rect x="52" y="196" width="264" height="24" fill="#313244"/>
+  <text x="108" y="213" font-family="monospace" font-size="13" fill="#89DCEB">  styles.css</text>
+  <!-- Yellow dot = issues -->
+  <circle cx="290" cy="208" r="5" fill="#F5A623"/>
+  <text x="286" y="213" font-family="monospace" font-size="9" fill="#111" text-anchor="middle" font-weight="700">5</text>
+
+  <text x="108" y="237" font-family="monospace" font-size="13" fill="#585B70">  variables.css</text>
+  <text x="88" y="261" font-family="sans-serif" font-size="13" fill="#585B70">  App.tsx</text>
+  <text x="88" y="285" font-family="sans-serif" font-size="13" fill="#585B70">  index.tsx</text>
+  <text x="68" y="309" font-family="sans-serif" font-size="13" fill="#585B70">  package.json</text>
+  <rect x="52" y="315" width="264" height="24" fill="#252535"/>
+  <text x="68" y="332" font-family="sans-serif" font-size="13" fill="#89DCEB">  tokens.dtcg.json</text>
+  <text x="68" y="356" font-family="sans-serif" font-size="13" fill="#585B70">  tsconfig.json</text>
+
+  <!-- TokenDrift Status panel at bottom of sidebar -->
+  <rect x="52" y="680" width="264" height="220" fill="#11111B"/>
+  <rect x="52" y="680" width="264" height="1" fill="#313244"/>
+  <text x="68" y="702" font-family="sans-serif" font-size="10" font-weight="700" fill="#45475A" letter-spacing="0.1em">TOKENDRIFT</text>
+  <!-- Stats -->
+  <rect x="62" y="712" width="244" height="56" rx="6" fill="#1E1E2E"/>
+  <circle cx="80" cy="730" r="5" fill="#F5A623"/>
+  <text x="92" y="735" font-family="monospace" font-size="12" fill="#F5A623">5 token issues</text>
+  <circle cx="80" cy="754" r="5" fill="#89B4FA"/>
+  <text x="92" y="758" font-family="monospace" font-size="12" fill="#89B4FA">2 suggestions</text>
+  <!-- Drift score -->
+  <rect x="62" y="778" width="244" height="40" rx="6" fill="#1E1E2E"/>
+  <text x="78" y="803" font-family="sans-serif" font-size="11" fill="#45475A">Drift Score</text>
+  <text x="246" y="803" font-family="monospace" font-size="13" font-weight="700" fill="#F5A623" text-anchor="end">72/100</text>
+  <!-- Score bar -->
+  <rect x="62" y="826" width="244" height="6" rx="3" fill="#313244"/>
+  <rect x="62" y="826" width="175" height="6" rx="3" fill="#F5A623"/>
+  <!-- Quick fix button -->
+  <rect x="62" y="842" width="244" height="28" rx="6" fill="#1C7DD5" opacity="0.2"/>
+  <rect x="62" y="842" width="244" height="28" rx="6" fill="none" stroke="#1C7DD5" stroke-width="1"/>
+  <text x="184" y="861" font-family="sans-serif" font-size="12" font-weight="600" fill="#89B4FA" text-anchor="middle">⚡ Fix all issues</text>
+
+  <!-- Tab bar -->
+  <rect x="316" y="36" width="884" height="36" fill="#181825"/>
+  <!-- Active tab -->
+  <rect x="316" y="36" width="160" height="36" fill="#1E1E2E"/>
+  <rect x="316" y="36" width="160" height="2" fill="#89B4FA"/>
+  <text x="346" y="59" font-family="monospace" font-size="13" fill="#89DCEB">styles.css</text>
+  <!-- Inactive tab -->
+  <text x="510" y="59" font-family="monospace" font-size="13" fill="#585B70">App.tsx</text>
+  <text x="630" y="59" font-family="monospace" font-size="13" fill="#585B70">tokens.dtcg.json</text>
+
+  <!-- Editor content -->
+  <g clip-path="url(#editor)">
+    <!-- Line number gutter -->
+    <rect x="316" y="72" width="52" height="800" fill="#1E1E2E"/>
+
+    <!-- Cursor line highlight -->
+    <rect x="368" y="198" width="832" height="24" fill="#2A2A3C"/>
+
+    <!-- Line numbers -->
+    <text x="328" y="96"  font-family="monospace" font-size="14" fill="#45475A">1</text>
+    <text x="328" y="122" font-family="monospace" font-size="14" fill="#45475A">2</text>
+    <text x="328" y="148" font-family="monospace" font-size="14" fill="#45475A">3</text>
+    <text x="328" y="174" font-family="monospace" font-size="14" fill="#45475A">4</text>
+    <text x="328" y="200" font-family="monospace" font-size="14" fill="#CDD6F4">5</text>
+    <text x="328" y="226" font-family="monospace" font-size="14" fill="#45475A">6</text>
+    <text x="328" y="252" font-family="monospace" font-size="14" fill="#45475A">7</text>
+    <text x="328" y="278" font-family="monospace" font-size="14" fill="#45475A">8</text>
+    <text x="328" y="304" font-family="monospace" font-size="14" fill="#45475A">9</text>
+    <text x="320" y="330" font-family="monospace" font-size="14" fill="#45475A">10</text>
+    <text x="320" y="356" font-family="monospace" font-size="14" fill="#45475A">11</text>
+    <text x="320" y="382" font-family="monospace" font-size="14" fill="#45475A">12</text>
+    <text x="320" y="408" font-family="monospace" font-size="14" fill="#45475A">13</text>
+    <text x="320" y="434" font-family="monospace" font-size="14" fill="#45475A">14</text>
+    <text x="320" y="460" font-family="monospace" font-size="14" fill="#45475A">15</text>
+    <text x="320" y="486" font-family="monospace" font-size="14" fill="#45475A">16</text>
+    <text x="320" y="512" font-family="monospace" font-size="14" fill="#45475A">17</text>
+    <text x="320" y="538" font-family="monospace" font-size="14" fill="#45475A">18</text>
+    <text x="320" y="564" font-family="monospace" font-size="14" fill="#45475A">19</text>
+    <text x="320" y="590" font-family="monospace" font-size="14" fill="#45475A">20</text>
+
+    <!-- CODE: Line 1 -->
+    <text x="388" y="96" font-family="monospace" font-size="14" fill="#A6E3A1">.btn-primary </text>
+    <text x="528" y="96" font-family="monospace" font-size="14" fill="#CDD6F4">{</text>
+
+    <!-- Line 2: hard-coded color → yellow underline -->
+    <text x="408" y="122" font-family="monospace" font-size="14" fill="#89DCEB">background</text>
+    <text x="498" y="122" font-family="monospace" font-size="14" fill="#CDD6F4">: </text>
+    <text x="516" y="122" font-family="monospace" font-size="14" fill="#FAB387">#2563eb</text>
+    <text x="578" y="122" font-family="monospace" font-size="14" fill="#CDD6F4">;</text>
+    <!-- Yellow squiggle underline -->
+    <path d="M516,126 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 1.5,0" fill="none" stroke="#F5A623" stroke-width="2"/>
+    <!-- Warning icon -->
+    <text x="600" y="122" font-family="monospace" font-size="12" fill="#F5A623">  ⚠ token match</text>
+
+    <!-- Line 3: border-radius hard-coded → yellow -->
+    <text x="408" y="148" font-family="monospace" font-size="14" fill="#89DCEB">border-radius</text>
+    <text x="502" y="148" font-family="monospace" font-size="14" fill="#CDD6F4">: </text>
+    <text x="520" y="148" font-family="monospace" font-size="14" fill="#FAB387">8px</text>
+    <text x="548" y="148" font-family="monospace" font-size="14" fill="#CDD6F4">;</text>
+    <path d="M520,152 q4,-3 8,0 q4,3 8,0 q4,-3 8,0 q2,1.5 0,0" fill="none" stroke="#F5A623" stroke-width="2"/>
+    <text x="570" y="148" font-family="monospace" font-size="12" fill="#F5A623">  ⚠ token match</text>
+
+    <!-- Line 4: padding hard-coded → yellow -->
+    <text x="408" y="174" font-family="monospace" font-size="14" fill="#89DCEB">padding</text>
+    <text x="458" y="174" font-family="monospace" font-size="14" fill="#CDD6F4">: </text>
+    <text x="476" y="174" font-family="monospace" font-size="14" fill="#FAB387">12px 24px</text>
+    <text x="560" y="174" font-family="monospace" font-size="14" fill="#CDD6F4">;</text>
+    <path d="M476,178 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 10,0 q5,-4 4,0" fill="none" stroke="#F5A623" stroke-width="2"/>
+    <text x="582" y="174" font-family="monospace" font-size="12" fill="#F5A623">  ⚠ token match</text>
+
+    <!-- Line 5: correct token usage — cursor line -->
+    <text x="408" y="200" font-family="monospace" font-size="14" fill="#89DCEB">font-size</text>
+    <text x="466" y="200" font-family="monospace" font-size="14" fill="#CDD6F4">: var(</text>
+    <text x="504" y="200" font-family="monospace" font-size="14" fill="#F38BA8">--font-size-md</text>
+    <text x="598" y="200" font-family="monospace" font-size="14" fill="#CDD6F4">);</text>
+    <!-- Green tick = correct -->
+    <text x="636" y="200" font-family="monospace" font-size="12" fill="#A6E3A1">  ✓ correct token</text>
+
+    <!-- Line 6: color → blue underline (new token suggestion) -->
+    <text x="408" y="226" font-family="monospace" font-size="14" fill="#89DCEB">color</text>
+    <text x="438" y="226" font-family="monospace" font-size="14" fill="#CDD6F4">: </text>
+    <text x="456" y="226" font-family="monospace" font-size="14" fill="#FAB387">#ffffff</text>
+    <text x="504" y="226" font-family="monospace" font-size="14" fill="#CDD6F4">;</text>
+    <!-- Blue dashed underline = new token suggestion -->
+    <line x1="456" y1="230" x2="504" y2="230" stroke="#89B4FA" stroke-width="2" stroke-dasharray="4,3"/>
+    <text x="526" y="226" font-family="monospace" font-size="12" fill="#89B4FA">  💡 suggest token</text>
+
+    <!-- Line 7 -->
+    <text x="408" y="252" font-family="monospace" font-size="14" fill="#89DCEB">transition</text>
+    <text x="468" y="252" font-family="monospace" font-size="14" fill="#CDD6F4">: all 0.3s ease;</text>
+
+    <!-- Line 8: closing brace -->
+    <text x="388" y="278" font-family="monospace" font-size="14" fill="#CDD6F4">}</text>
+
+    <!-- Line 9: blank -->
+
+    <!-- Line 10 -->
+    <text x="388" y="330" font-family="monospace" font-size="14" fill="#A6E3A1">.btn-primary:hover </text>
+    <text x="546" y="330" font-family="monospace" font-size="14" fill="#CDD6F4">{</text>
+
+    <!-- Line 11: hard-coded hover color → yellow -->
+    <text x="408" y="356" font-family="monospace" font-size="14" fill="#89DCEB">background</text>
+    <text x="498" y="356" font-family="monospace" font-size="14" fill="#CDD6F4">: </text>
+    <text x="516" y="356" font-family="monospace" font-size="14" fill="#FAB387">#1d4ed8</text>
+    <text x="578" y="356" font-family="monospace" font-size="14" fill="#CDD6F4">;</text>
+    <path d="M516,360 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 10,0 q5,-4 10,0 q5,4 1.5,0" fill="none" stroke="#F5A623" stroke-width="2"/>
+    <text x="600" y="356" font-family="monospace" font-size="12" fill="#F5A623">  ⚠ token match</text>
+
+    <!-- Line 12 -->
+    <text x="408" y="382" font-family="monospace" font-size="14" fill="#89DCEB">transform</text>
+    <text x="468" y="382" font-family="monospace" font-size="14" fill="#CDD6F4">: translateY(</text>
+    <text x="580" y="382" font-family="monospace" font-size="14" fill="#FAB387">-2px</text>
+    <text x="612" y="382" font-family="monospace" font-size="14" fill="#CDD6F4">);</text>
+
+    <!-- Line 13: closing -->
+    <text x="388" y="408" font-family="monospace" font-size="14" fill="#CDD6F4">}</text>
+
+    <!-- Line 14 blank, Line 15 comment -->
+    <text x="388" y="460" font-family="monospace" font-size="14" fill="#585B70">/* TokenDrift skip: intentional override */</text>
+    <text x="388" y="486" font-family="monospace" font-size="14" fill="#89DCEB">outline</text>
+    <text x="440" y="486" font-family="monospace" font-size="14" fill="#CDD6F4">: 2px solid var(</text>
+    <text x="560" y="486" font-family="monospace" font-size="14" fill="#F38BA8">--color-focus</text>
+    <text x="644" y="486" font-family="monospace" font-size="14" fill="#CDD6F4">);</text>
+    <text x="688" y="486" font-family="monospace" font-size="12" fill="#A6E3A1">  ✓ correct token</text>
+
+    <!-- TOOLTIP popup over line 2 -->
+    <rect x="516" y="72" width="370" height="98" rx="8" fill="#1E1E2E" stroke="#313244" stroke-width="1.5" filter="drop-shadow(0 4px 20px rgba(0,0,0,0.5))"/>
+    <!-- Tooltip header bar -->
+    <rect x="516" y="72" width="370" height="26" rx="8" fill="#313244"/>
+    <rect x="516" y="86" width="370" height="12" fill="#313244"/>
+    <circle cx="534" cy="85" r="5" fill="#F5A623"/>
+    <text x="546" y="89" font-family="monospace" font-size="11" fill="#F5A623">TokenDrift — Matched token found</text>
+    <!-- Tooltip body -->
+    <text x="528" y="116" font-family="monospace" font-size="13" fill="#585B70">#2563eb  →  </text>
+    <text x="622" y="116" font-family="monospace" font-size="13" fill="#89B4FA">var(--color-primary)</text>
+    <!-- Confidence -->
+    <text x="528" y="136" font-family="sans-serif" font-size="11" fill="#585B70">Confidence: </text>
+    <rect x="600" y="126" width="80" height="12" rx="3" fill="#313244"/>
+    <rect x="600" y="126" width="74" height="12" rx="3" fill="#A6E3A1" opacity="0.8"/>
+    <text x="686" y="136" font-family="sans-serif" font-size="11" fill="#A6E3A1">92%</text>
+    <!-- Action buttons -->
+    <rect x="528" y="144" width="100" height="20" rx="4" fill="#1C7DD5" opacity="0.25"/>
+    <rect x="528" y="144" width="100" height="20" rx="4" fill="none" stroke="#89B4FA" stroke-width="1"/>
+    <text x="578" y="158" font-family="monospace" font-size="11" fill="#89B4FA" text-anchor="middle">⚡ Quick fix</text>
+    <rect x="638" y="144" width="80" height="20" rx="4" fill="#313244"/>
+    <text x="678" y="158" font-family="monospace" font-size="11" fill="#CDD6F4" text-anchor="middle">Dismiss</text>
+    <rect x="728" y="144" width="140" height="20" rx="4" fill="#313244"/>
+    <text x="798" y="158" font-family="monospace" font-size="11" fill="#585B70" text-anchor="middle">Add to exceptions</text>
+  </g>
+
+  <!-- Status bar -->
+  <rect x="0" y="868" width="1200" height="32" fill="#11111B"/>
+  <rect x="316" y="868" width="1" height="32" fill="#313244"/>
+  <!-- Left status -->
+  <circle cx="24" cy="884" r="5" fill="#A6E3A1"/>
+  <text x="34" y="888" font-family="monospace" font-size="11" fill="#A6E3A1">main</text>
+  <!-- Editor info -->
+  <circle cx="344" cy="884" r="5" fill="#F5A623"/>
+  <text x="356" y="888" font-family="monospace" font-size="11" fill="#F5A623">5 token issues</text>
+  <circle cx="480" cy="884" r="5" fill="#89B4FA"/>
+  <text x="492" y="888" font-family="monospace" font-size="11" fill="#89B4FA">2 suggestions</text>
+  <!-- Right status -->
+  <text x="1150" y="888" font-family="monospace" font-size="11" fill="#A6E3A1" text-anchor="end">TokenDrift ✓ active</text>
+</svg>

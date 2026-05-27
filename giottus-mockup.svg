@@ -1,0 +1,281 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <clipPath id="s1"><rect x="97" y="100" width="266" height="492"/></clipPath>
+    <clipPath id="s2"><rect x="467" y="100" width="266" height="492"/></clipPath>
+    <clipPath id="s3"><rect x="837" y="100" width="266" height="492"/></clipPath>
+    <radialGradient id="g1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00D084" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00D084" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1C7DD5" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#1C7DD5" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="g3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="#080A0D"/>
+  <!-- Subtle dot grid -->
+  <pattern id="dots" width="40" height="40" patternUnits="userSpaceOnUse">
+    <circle cx="20" cy="20" r="1" fill="#ffffff" fill-opacity="0.04"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#dots)"/>
+
+  <!-- Glow behind each phone -->
+  <ellipse cx="230" cy="400" rx="200" ry="300" fill="url(#g1)"/>
+  <ellipse cx="600" cy="400" rx="200" ry="300" fill="url(#g2)"/>
+  <ellipse cx="970" cy="400" rx="200" ry="300" fill="url(#g3)"/>
+
+  <!-- ═══════════════ PHONE 1: DEFAULT MODE ═══════════════ -->
+  <rect x="90" y="80" width="280" height="520" rx="30" fill="#151820" stroke="#252A35" stroke-width="1.5"/>
+  <!-- Notch -->
+  <rect x="183" y="88" width="94" height="16" rx="8" fill="#080A0D"/>
+  <!-- Camera dot -->
+  <circle cx="247" cy="96" r="3" fill="#1a1d22"/>
+
+  <g clip-path="url(#s1)">
+    <!-- Status bar -->
+    <rect x="97" y="100" width="266" height="42" fill="#111318"/>
+    <text x="113" y="126" font-family="monospace,sans-serif" font-size="13" font-weight="700" fill="#F0F0EC">BTC/USDT</text>
+    <text x="215" y="126" font-family="monospace" font-size="13" fill="#00D084">43,250</text>
+    <text x="287" y="126" font-family="monospace" font-size="10" fill="#00D084">▲2.4%</text>
+
+    <!-- Chart bg -->
+    <rect x="97" y="142" width="266" height="185" fill="#0A0C10"/>
+    <!-- Price line guide -->
+    <line x1="97" y1="200" x2="363" y2="200" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="97" y1="220" x2="363" y2="220" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="97" y1="240" x2="363" y2="240" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="97" y1="260" x2="363" y2="260" stroke="#1A1D24" stroke-width="1"/>
+    <!-- Candles -->
+    <line x1="115" y1="178" x2="115" y2="210" stroke="#FF5454" stroke-width="1.5"/><rect x="110" y="182" width="10" height="22" fill="#FF5454"/>
+    <line x1="133" y1="172" x2="133" y2="208" stroke="#00D084" stroke-width="1.5"/><rect x="128" y="178" width="10" height="20" fill="#00D084"/>
+    <line x1="151" y1="177" x2="151" y2="212" stroke="#FF5454" stroke-width="1.5"/><rect x="146" y="182" width="10" height="24" fill="#FF5454"/>
+    <line x1="169" y1="168" x2="169" y2="205" stroke="#00D084" stroke-width="1.5"/><rect x="164" y="174" width="10" height="24" fill="#00D084"/>
+    <line x1="187" y1="164" x2="187" y2="200" stroke="#00D084" stroke-width="1.5"/><rect x="182" y="170" width="10" height="22" fill="#00D084"/>
+    <line x1="205" y1="170" x2="205" y2="206" stroke="#FF5454" stroke-width="1.5"/><rect x="200" y="175" width="10" height="20" fill="#FF5454"/>
+    <line x1="223" y1="156" x2="223" y2="196" stroke="#00D084" stroke-width="1.5"/><rect x="218" y="162" width="10" height="28" fill="#00D084"/>
+    <line x1="241" y1="150" x2="241" y2="192" stroke="#00D084" stroke-width="1.5"/><rect x="236" y="156" width="10" height="28" fill="#00D084"/>
+    <line x1="259" y1="159" x2="259" y2="196" stroke="#FF5454" stroke-width="1.5"/><rect x="254" y="164" width="10" height="22" fill="#FF5454"/>
+    <line x1="277" y1="148" x2="277" y2="188" stroke="#00D084" stroke-width="1.5"/><rect x="272" y="153" width="10" height="28" fill="#00D084"/>
+    <line x1="295" y1="144" x2="295" y2="184" stroke="#00D084" stroke-width="1.5"/><rect x="290" y="149" width="10" height="28" fill="#00D084"/>
+    <line x1="313" y1="140" x2="313" y2="178" stroke="#00D084" stroke-width="1.5"/><rect x="308" y="145" width="10" height="26" fill="#00D084"/>
+    <line x1="331" y1="151" x2="331" y2="192" stroke="#FF5454" stroke-width="1.5"/><rect x="326" y="156" width="10" height="22" fill="#FF5454"/>
+    <line x1="349" y1="143" x2="349" y2="182" stroke="#00D084" stroke-width="1.5"/><rect x="344" y="148" width="10" height="26" fill="#00D084" opacity="0.9"/>
+    <!-- Volume -->
+    <rect x="110" y="308" width="9" height="15" fill="#FF5454" opacity="0.35"/>
+    <rect x="128" y="306" width="9" height="17" fill="#00D084" opacity="0.35"/>
+    <rect x="146" y="304" width="9" height="19" fill="#FF5454" opacity="0.35"/>
+    <rect x="164" y="301" width="9" height="22" fill="#00D084" opacity="0.35"/>
+    <rect x="182" y="299" width="9" height="24" fill="#00D084" opacity="0.35"/>
+    <rect x="200" y="303" width="9" height="20" fill="#FF5454" opacity="0.35"/>
+    <rect x="218" y="296" width="9" height="27" fill="#00D084" opacity="0.35"/>
+    <rect x="236" y="293" width="9" height="30" fill="#00D084" opacity="0.35"/>
+    <rect x="254" y="300" width="9" height="23" fill="#FF5454" opacity="0.35"/>
+    <rect x="272" y="290" width="9" height="33" fill="#00D084" opacity="0.35"/>
+    <rect x="290" y="288" width="9" height="35" fill="#00D084" opacity="0.35"/>
+    <rect x="308" y="287" width="9" height="36" fill="#00D084" opacity="0.4"/>
+    <rect x="326" y="294" width="9" height="29" fill="#FF5454" opacity="0.35"/>
+    <rect x="344" y="285" width="9" height="38" fill="#00D084" opacity="0.4"/>
+
+    <!-- Order panel bg -->
+    <rect x="97" y="327" width="266" height="90" fill="#111318"/>
+    <!-- Input row -->
+    <rect x="108" y="336" width="112" height="30" rx="5" fill="#1A1D24" stroke="#252830" stroke-width="1"/>
+    <text x="120" y="350" font-family="sans-serif" font-size="9" fill="#666">Quantity (BTC)</text>
+    <text x="120" y="363" font-family="monospace" font-size="11" fill="#F0F0EC">0.05</text>
+    <rect x="228" y="336" width="124" height="30" rx="5" fill="#1A1D24" stroke="#252830" stroke-width="1"/>
+    <text x="240" y="350" font-family="sans-serif" font-size="9" fill="#666">Price (USDT)</text>
+    <text x="240" y="363" font-family="monospace" font-size="11" fill="#F0F0EC">43,250</text>
+    <!-- BUY / SELL -->
+    <rect x="108" y="374" width="112" height="36" rx="7" fill="#00D084"/>
+    <text x="164" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">BUY</text>
+    <rect x="228" y="374" width="124" height="36" rx="7" fill="#FF5454"/>
+    <text x="290" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">SELL</text>
+
+    <!-- Position -->
+    <rect x="97" y="417" width="266" height="52" fill="#0F1218"/>
+    <text x="112" y="434" font-family="sans-serif" font-size="9" letter-spacing="0.08em" fill="#555">OPEN POSITION</text>
+    <text x="112" y="454" font-family="monospace" font-size="12" fill="#00D084">BTC Long  +$215.40  ▲4.2%</text>
+    <!-- Redundant icon: checkmark -->
+    <text x="336" y="454" font-family="sans-serif" font-size="14" fill="#00D084">✓</text>
+
+    <!-- Chart tab active -->
+    <rect x="97" y="469" width="266" height="48" fill="#111318"/>
+    <text x="140" y="498" font-family="sans-serif" font-size="10" fill="#00D084" text-anchor="middle">Chart</text>
+    <text x="230" y="498" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Orders</text>
+    <text x="320" y="498" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Positions</text>
+    <rect x="121" y="469" width="38" height="2" rx="1" fill="#00D084"/>
+
+    <!-- Screenshotoverlay shimmer -->
+    <rect x="97" y="100" width="266" height="492" fill="white" fill-opacity="0.015"/>
+  </g>
+  <!-- Home bar -->
+  <rect x="190" y="586" width="60" height="4" rx="2" fill="#333"/>
+
+  <!-- Mode label -->
+  <circle cx="128" cy="638" r="5" fill="#00D084"/>
+  <text x="141" y="643" font-family="sans-serif" font-size="13" font-weight="600" fill="#F0F0EC">Default Mode</text>
+  <text x="141" y="660" font-family="sans-serif" font-size="11" fill="#555">Green / Red</text>
+
+  <!-- ═══════════════ PHONE 2: COLORBLIND MODE ═══════════════ -->
+  <rect x="460" y="80" width="280" height="520" rx="30" fill="#151820" stroke="#252A35" stroke-width="1.5"/>
+  <rect x="553" y="88" width="94" height="16" rx="8" fill="#080A0D"/>
+  <circle cx="617" cy="96" r="3" fill="#1a1d22"/>
+
+  <g clip-path="url(#s2)">
+    <rect x="467" y="100" width="266" height="42" fill="#111318"/>
+    <text x="483" y="126" font-family="monospace" font-size="13" font-weight="700" fill="#F0F0EC">BTC/USDT</text>
+    <text x="585" y="126" font-family="monospace" font-size="13" fill="#1C7DD5">43,250</text>
+    <text x="657" y="126" font-family="monospace" font-size="10" fill="#1C7DD5">▲2.4%</text>
+
+    <rect x="467" y="142" width="266" height="185" fill="#0A0C10"/>
+    <line x1="467" y1="200" x2="733" y2="200" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="467" y1="220" x2="733" y2="220" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="467" y1="240" x2="733" y2="240" stroke="#1A1D24" stroke-width="1"/>
+    <line x1="467" y1="260" x2="733" y2="260" stroke="#1A1D24" stroke-width="1"/>
+    <!-- Blue/Orange candles -->
+    <line x1="485" y1="178" x2="485" y2="210" stroke="#FF8C00" stroke-width="1.5"/><rect x="480" y="182" width="10" height="22" fill="#FF8C00"/>
+    <line x1="503" y1="172" x2="503" y2="208" stroke="#1C7DD5" stroke-width="1.5"/><rect x="498" y="178" width="10" height="20" fill="#1C7DD5"/>
+    <line x1="521" y1="177" x2="521" y2="212" stroke="#FF8C00" stroke-width="1.5"/><rect x="516" y="182" width="10" height="24" fill="#FF8C00"/>
+    <line x1="539" y1="168" x2="539" y2="205" stroke="#1C7DD5" stroke-width="1.5"/><rect x="534" y="174" width="10" height="24" fill="#1C7DD5"/>
+    <line x1="557" y1="164" x2="557" y2="200" stroke="#1C7DD5" stroke-width="1.5"/><rect x="552" y="170" width="10" height="22" fill="#1C7DD5"/>
+    <line x1="575" y1="170" x2="575" y2="206" stroke="#FF8C00" stroke-width="1.5"/><rect x="570" y="175" width="10" height="20" fill="#FF8C00"/>
+    <line x1="593" y1="156" x2="593" y2="196" stroke="#1C7DD5" stroke-width="1.5"/><rect x="588" y="162" width="10" height="28" fill="#1C7DD5"/>
+    <line x1="611" y1="150" x2="611" y2="192" stroke="#1C7DD5" stroke-width="1.5"/><rect x="606" y="156" width="10" height="28" fill="#1C7DD5"/>
+    <line x1="629" y1="159" x2="629" y2="196" stroke="#FF8C00" stroke-width="1.5"/><rect x="624" y="164" width="10" height="22" fill="#FF8C00"/>
+    <line x1="647" y1="148" x2="647" y2="188" stroke="#1C7DD5" stroke-width="1.5"/><rect x="642" y="153" width="10" height="28" fill="#1C7DD5"/>
+    <line x1="665" y1="144" x2="665" y2="184" stroke="#1C7DD5" stroke-width="1.5"/><rect x="660" y="149" width="10" height="28" fill="#1C7DD5"/>
+    <line x1="683" y1="140" x2="683" y2="178" stroke="#1C7DD5" stroke-width="1.5"/><rect x="678" y="145" width="10" height="26" fill="#1C7DD5"/>
+    <line x1="701" y1="151" x2="701" y2="192" stroke="#FF8C00" stroke-width="1.5"/><rect x="696" y="156" width="10" height="22" fill="#FF8C00"/>
+    <line x1="719" y1="143" x2="719" y2="182" stroke="#1C7DD5" stroke-width="1.5"/><rect x="714" y="148" width="10" height="26" fill="#1C7DD5" opacity="0.9"/>
+    <!-- Volume -->
+    <rect x="480" y="308" width="9" height="15" fill="#FF8C00" opacity="0.35"/>
+    <rect x="498" y="306" width="9" height="17" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="516" y="304" width="9" height="19" fill="#FF8C00" opacity="0.35"/>
+    <rect x="534" y="301" width="9" height="22" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="552" y="299" width="9" height="24" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="570" y="303" width="9" height="20" fill="#FF8C00" opacity="0.35"/>
+    <rect x="588" y="296" width="9" height="27" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="606" y="293" width="9" height="30" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="624" y="300" width="9" height="23" fill="#FF8C00" opacity="0.35"/>
+    <rect x="642" y="290" width="9" height="33" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="660" y="288" width="9" height="35" fill="#1C7DD5" opacity="0.35"/>
+    <rect x="678" y="287" width="9" height="36" fill="#1C7DD5" opacity="0.4"/>
+    <rect x="696" y="294" width="9" height="29" fill="#FF8C00" opacity="0.35"/>
+    <rect x="714" y="285" width="9" height="38" fill="#1C7DD5" opacity="0.4"/>
+
+    <rect x="467" y="327" width="266" height="90" fill="#111318"/>
+    <rect x="478" y="336" width="112" height="30" rx="5" fill="#1A1D24" stroke="#252830" stroke-width="1"/>
+    <text x="490" y="350" font-family="sans-serif" font-size="9" fill="#666">Quantity (BTC)</text>
+    <text x="490" y="363" font-family="monospace" font-size="11" fill="#F0F0EC">0.05</text>
+    <rect x="598" y="336" width="124" height="30" rx="5" fill="#1A1D24" stroke="#252830" stroke-width="1"/>
+    <text x="610" y="350" font-family="sans-serif" font-size="9" fill="#666">Price (USDT)</text>
+    <text x="610" y="363" font-family="monospace" font-size="11" fill="#F0F0EC">43,250</text>
+    <!-- Blue BUY / Orange SELL with icons -->
+    <rect x="478" y="374" width="112" height="36" rx="7" fill="#1C7DD5"/>
+    <text x="534" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">▲ BUY</text>
+    <rect x="598" y="374" width="124" height="36" rx="7" fill="#FF8C00"/>
+    <text x="660" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">▼ SELL</text>
+
+    <rect x="467" y="417" width="266" height="52" fill="#0F1218"/>
+    <text x="482" y="434" font-family="sans-serif" font-size="9" letter-spacing="0.08em" fill="#555">OPEN POSITION</text>
+    <text x="482" y="454" font-family="monospace" font-size="12" fill="#1C7DD5">BTC Long  +$215.40  ▲4.2%</text>
+    <text x="706" y="454" font-family="sans-serif" font-size="14" fill="#1C7DD5">✓</text>
+
+    <rect x="467" y="469" width="266" height="48" fill="#111318"/>
+    <text x="510" y="498" font-family="sans-serif" font-size="10" fill="#1C7DD5" text-anchor="middle">Chart</text>
+    <text x="600" y="498" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Orders</text>
+    <text x="690" y="498" font-family="sans-serif" font-size="10" fill="#555" text-anchor="middle">Positions</text>
+    <rect x="491" y="469" width="38" height="2" rx="1" fill="#1C7DD5"/>
+  </g>
+  <rect x="560" y="586" width="60" height="4" rx="2" fill="#333"/>
+
+  <circle cx="498" cy="638" r="5" fill="#1C7DD5"/>
+  <text x="511" y="643" font-family="sans-serif" font-size="13" font-weight="600" fill="#F0F0EC">Colorblind Mode</text>
+  <text x="511" y="660" font-family="sans-serif" font-size="11" fill="#555">Blue / Orange + Icons</text>
+
+  <!-- ═══════════════ PHONE 3: GREYSCALE MODE ═══════════════ -->
+  <rect x="830" y="80" width="280" height="520" rx="30" fill="#222428" stroke="#333640" stroke-width="1.5"/>
+  <rect x="923" y="88" width="94" height="16" rx="8" fill="#111"/>
+  <circle cx="987" cy="96" r="3" fill="#2a2a2a"/>
+
+  <g clip-path="url(#s3)">
+    <rect x="837" y="100" width="266" height="42" fill="#1A1A1A"/>
+    <text x="853" y="126" font-family="monospace" font-size="13" font-weight="700" fill="#E8E8E8">BTC/USDT</text>
+    <text x="955" y="126" font-family="monospace" font-size="13" fill="#E0E0E0">43,250</text>
+    <text x="1027" y="126" font-family="monospace" font-size="10" fill="#E0E0E0">▲2.4%</text>
+
+    <rect x="837" y="142" width="266" height="185" fill="#111"/>
+    <line x1="837" y1="200" x2="1103" y2="200" stroke="#2A2A2A" stroke-width="1"/>
+    <line x1="837" y1="220" x2="1103" y2="220" stroke="#2A2A2A" stroke-width="1"/>
+    <line x1="837" y1="240" x2="1103" y2="240" stroke="#2A2A2A" stroke-width="1"/>
+    <line x1="837" y1="260" x2="1103" y2="260" stroke="#2A2A2A" stroke-width="1"/>
+    <!-- Greyscale candles: dark fill = bear, light fill = bull -->
+    <line x1="855" y1="178" x2="855" y2="210" stroke="#555" stroke-width="1.5"/><rect x="850" y="182" width="10" height="22" fill="#444"/>
+    <line x1="873" y1="172" x2="873" y2="208" stroke="#CCC" stroke-width="1.5"/><rect x="868" y="178" width="10" height="20" fill="#CCC"/>
+    <line x1="891" y1="177" x2="891" y2="212" stroke="#555" stroke-width="1.5"/><rect x="886" y="182" width="10" height="24" fill="#444"/>
+    <line x1="909" y1="168" x2="909" y2="205" stroke="#CCC" stroke-width="1.5"/><rect x="904" y="174" width="10" height="24" fill="#CCC"/>
+    <line x1="927" y1="164" x2="927" y2="200" stroke="#CCC" stroke-width="1.5"/><rect x="922" y="170" width="10" height="22" fill="#CCC"/>
+    <line x1="945" y1="170" x2="945" y2="206" stroke="#555" stroke-width="1.5"/><rect x="940" y="175" width="10" height="20" fill="#444"/>
+    <line x1="963" y1="156" x2="963" y2="196" stroke="#CCC" stroke-width="1.5"/><rect x="958" y="162" width="10" height="28" fill="#CCC"/>
+    <line x1="981" y1="150" x2="981" y2="192" stroke="#CCC" stroke-width="1.5"/><rect x="976" y="156" width="10" height="28" fill="#DDD"/>
+    <line x1="999" y1="159" x2="999" y2="196" stroke="#555" stroke-width="1.5"/><rect x="994" y="164" width="10" height="22" fill="#444"/>
+    <line x1="1017" y1="148" x2="1017" y2="188" stroke="#CCC" stroke-width="1.5"/><rect x="1012" y="153" width="10" height="28" fill="#DDD"/>
+    <line x1="1035" y1="144" x2="1035" y2="184" stroke="#CCC" stroke-width="1.5"/><rect x="1030" y="149" width="10" height="28" fill="#DDD"/>
+    <line x1="1053" y1="140" x2="1053" y2="178" stroke="#CCC" stroke-width="1.5"/><rect x="1048" y="145" width="10" height="26" fill="#E8E8E8"/>
+    <line x1="1071" y1="151" x2="1071" y2="192" stroke="#555" stroke-width="1.5"/><rect x="1066" y="156" width="10" height="22" fill="#444"/>
+    <line x1="1089" y1="143" x2="1089" y2="182" stroke="#CCC" stroke-width="1.5"/><rect x="1084" y="148" width="10" height="26" fill="#E8E8E8" opacity="0.9"/>
+    <!-- Volume -->
+    <rect x="850" y="308" width="9" height="15" fill="#444" opacity="0.7"/>
+    <rect x="868" y="306" width="9" height="17" fill="#CCC" opacity="0.7"/>
+    <rect x="886" y="304" width="9" height="19" fill="#444" opacity="0.7"/>
+    <rect x="904" y="301" width="9" height="22" fill="#CCC" opacity="0.7"/>
+    <rect x="922" y="299" width="9" height="24" fill="#CCC" opacity="0.7"/>
+    <rect x="940" y="303" width="9" height="20" fill="#444" opacity="0.7"/>
+    <rect x="958" y="296" width="9" height="27" fill="#CCC" opacity="0.7"/>
+    <rect x="976" y="293" width="9" height="30" fill="#CCC" opacity="0.7"/>
+    <rect x="994" y="300" width="9" height="23" fill="#444" opacity="0.7"/>
+    <rect x="1012" y="290" width="9" height="33" fill="#CCC" opacity="0.7"/>
+    <rect x="1030" y="288" width="9" height="35" fill="#CCC" opacity="0.7"/>
+    <rect x="1048" y="287" width="9" height="36" fill="#DDD" opacity="0.8"/>
+    <rect x="1066" y="294" width="9" height="29" fill="#444" opacity="0.7"/>
+    <rect x="1084" y="285" width="9" height="38" fill="#E8E8E8" opacity="0.8"/>
+
+    <rect x="837" y="327" width="266" height="90" fill="#1A1A1A"/>
+    <rect x="848" y="336" width="112" height="30" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="860" y="350" font-family="sans-serif" font-size="9" fill="#666">Quantity (BTC)</text>
+    <text x="860" y="363" font-family="monospace" font-size="11" fill="#E8E8E8">0.05</text>
+    <rect x="968" y="336" width="124" height="30" rx="5" fill="#222" stroke="#333" stroke-width="1"/>
+    <text x="980" y="350" font-family="sans-serif" font-size="9" fill="#666">Price (USDT)</text>
+    <text x="980" y="363" font-family="monospace" font-size="11" fill="#E8E8E8">43,250</text>
+    <!-- White BUY (filled=long) / Dark SELL (hollow=short) with shapes -->
+    <rect x="848" y="374" width="112" height="36" rx="7" fill="#E8E8E8"/>
+    <text x="904" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#111" text-anchor="middle">■ BUY</text>
+    <rect x="968" y="374" width="124" height="36" rx="7" fill="none" stroke="#888" stroke-width="2"/>
+    <text x="1030" y="397" font-family="sans-serif" font-size="13" font-weight="700" fill="#E8E8E8" text-anchor="middle">□ SELL</text>
+
+    <rect x="837" y="417" width="266" height="52" fill="#111"/>
+    <text x="852" y="434" font-family="sans-serif" font-size="9" letter-spacing="0.08em" fill="#555">OPEN POSITION</text>
+    <text x="852" y="454" font-family="monospace" font-size="12" fill="#DDD">BTC Long  +$215.40  ▲4.2%</text>
+    <text x="1076" y="454" font-family="sans-serif" font-size="14" fill="#DDD">✓</text>
+
+    <rect x="837" y="469" width="266" height="48" fill="#1A1A1A"/>
+    <text x="880" y="498" font-family="sans-serif" font-size="10" fill="#E8E8E8" text-anchor="middle">Chart</text>
+    <text x="970" y="498" font-family="sans-serif" font-size="10" fill="#444" text-anchor="middle">Orders</text>
+    <text x="1060" y="498" font-family="sans-serif" font-size="10" fill="#444" text-anchor="middle">Positions</text>
+    <rect x="861" y="469" width="38" height="2" rx="1" fill="#E8E8E8"/>
+  </g>
+  <rect x="930" y="586" width="60" height="4" rx="2" fill="#444"/>
+
+  <circle cx="868" cy="638" r="5" fill="#888"/>
+  <text x="881" y="643" font-family="sans-serif" font-size="13" font-weight="600" fill="#F0F0EC">Greyscale Mode</text>
+  <text x="881" y="660" font-family="sans-serif" font-size="11" fill="#555">Shape + Contrast, no color</text>
+
+  <!-- Bottom label -->
+  <text x="600" y="825" font-family="sans-serif" font-size="13" font-weight="700" letter-spacing="0.15em" fill="#333" text-anchor="middle">WCAG 2.1 AA · First in Indian FinTech · 4 Crore Users Unlocked</text>
+</svg>
