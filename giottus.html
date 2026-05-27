@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giottus Futures Redesign — Case Study | Nishanthini</title>
+  <meta name="description" content="Redesigning Giottus Futures for color-vision-deficient traders — WCAG 2.1 AA compliance, 102s → 34s task time, 4 crore CVD users unlocked.">
+  <!-- OG -->
+  <meta property="og:title" content="Giottus Futures Redesign — Nishanthini S">
+  <meta property="og:description" content="The first WCAG 2.1 AA-compliant futures interface in Indian fintech. Task time 102s → 34s. Accessible to 4 crore CVD users.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF7A3D'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23fff'>N</text></svg>">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cs-page">
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Page transition overlays -->
+  <div id="pt-main"></div>
+  <div id="pt-line"></div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-bar"></div>
+
+  <!-- Nav -->
+  <nav class="nav nav--light" id="nav">
+    <a href="index.html" class="logo">Nishanthini.</a>
+    <div class="nav-links">
+      <a href="index.html#work"  class="nav-link">Work</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="mailto:thedesignernisha@gmail.com" class="nav-link nav-cta">Contact</a>
+      <a href="https://www.linkedin.com/in/thedesignernisha" target="_blank" rel="noopener" class="nav-linkedin" aria-label="LinkedIn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="assets/resume.pdf" class="nav-resume" download>
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Resume
+      </a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Barba.js wrapper -->
+  <div data-barba="wrapper">
+  <div data-barba="container" data-barba-namespace="giottus">
+
+  <!-- ── Hero ── -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">FINTECH · ACCESSIBILITY · WCAG 2.1 AA · CRYPTO TRADING</p>
+      <h1 class="cs-title">
+        <span class="clip-wrap"><span class="clip-inner">Making Crypto Trading Accessible</span></span>
+        <span class="clip-wrap"><span class="clip-inner">to 4 Crore Indians</span></span>
+      </h1>
+      <p class="cs-subtitle">Redesigning Giottus Futures for color-vision-deficient traders — the first WCAG 2.1 AA-compliant futures interface in Indian fintech, delivered in 5 weeks.</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Role</span>
+          <span class="cs-meta-val">Lead Product Designer</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Timeline</span>
+          <span class="cs-meta-val">5 Weeks</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Focus</span>
+          <span class="cs-meta-val">IA · WCAG · FinTech UX</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Tools</span>
+          <span class="cs-meta-val">Figma · FigJam · WCAG Audit</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero visual: 3 modes merged ── -->
+  <section class="cs-media">
+    <div class="cs-modes-img">
+      <img src="assets/giottus-modes.png" alt="Giottus three accessibility modes — Default, Color Blind, Greyscale">
+    </div>
+  </section>
+
+  <!-- ── Context ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">THE PROBLEM</p>
+      <h2>I went in to fix a navigation problem. I discovered a market exclusion problem.</h2>
+      <p>Giottus Futures is a high-frequency derivatives platform used by thousands of active traders daily. The brief was straightforward: traders were taking too long to place orders. Fix the navigation.</p>
+      <p>What the heatmap data revealed was deeper. Traders were switching between the Chart tab and Order Form tab an average of <strong>4.2 times per trade</strong> — spending 102 seconds on a task that should take under 30. The fragmented 3-tab architecture was the root cause.</p>
+      <p>But while interviewing CVD traders, a second, far more severe problem emerged: <strong>8% of Indian males — approximately 4 crore people — have some form of color vision deficiency.</strong> For them, the platform wasn't difficult. It was completely unusable. Buy and Sell buttons were green and red and nothing else. Price direction had no non-color indicator. Order status was invisible. This was a <strong>market exclusion problem hiding behind a navigation problem.</strong></p>
+    </div>
+  </section>
+
+  <!-- ── Pull Quote ── -->
+  <section class="cs-pull-quote">
+    <blockquote>I went in to fix navigation. The fix <em>inadvertently</em> unlocked 4 crore users nobody else had reached.</blockquote>
+  </section>
+
+  <!-- ── Problem ── -->
+  <section class="cs-text cs-text--accent-bg">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">TWO PROBLEMS, ONE REDESIGN</p>
+      <h2>Accessibility failure. Architecture failure. Both at the same time.</h2>
+      <p>My audit revealed two completely separate but equally severe problems that required an architectural solution — not a visual refresh.</p>
+      <ul class="cs-list">
+        <li><strong>Problem 1 — Accessibility failure:</strong> Buy/Sell buttons were green and red. Price movement used color alone. For a CVD user, the platform was <em>completely unusable</em> — not just difficult. Every critical action was invisible.</li>
+        <li><strong>Problem 2 — Architecture failure:</strong> Even for non-CVD users, a heatmap study revealed traders spent an average of <strong>102 seconds</strong> per order — over a minute of which was pure navigation overhead from a fragmented 3-tab interface. This was causing a <strong>15% order abandonment rate.</strong></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Problem image: before state ── -->
+  <section class="cs-media">
+    <div class="cs-problem-img">
+      <div class="cs-problem-badge">Existing Interface</div>
+      <img src="assets/giottus-problem.png" alt="Giottus original interface — before redesign">
+    </div>
+  </section>
+
+  <!-- ── Research ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">RESEARCH & DISCOVERY</p>
+      <h2>I don't design until I understand the problem at a systemic level.</h2>
+      <ul class="cs-list">
+        <li><strong>User interviews (6 traders):</strong> Recruited 6 traders one with colour vision differences — had abandoned the platform, not because it was hard to use, but because it was impossible to use safely without risking financial loss.</li>
+        <li><strong>Heatmap & session recording analysis (200+ sessions):</strong> Found the 3-tab navigation was the root cause of the 102s task time. Users were switching between Chart and Order Form an average of <strong>4.2 times per trade.</strong></li>
+        <li><strong>Competitor audit:</strong> Checked every major Indian crypto exchange — WazirX, CoinDCX, Zebpay. Not one had a CVD accessibility mode. This was a competitive moat, not just a compliance fix.</li>
+        <li><strong>WCAG 2.1 AA audit:</strong> The platform failed on 18 WCAG AA criteria. Most critical: 1.4.1 (Use of Color), 1.4.3 (Contrast Ratio), and 1.4.11 (Non-text Contrast).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Insight strip ── -->
+  <section class="cs-insight-row">
+    <div class="cs-insight">
+      <span class="cs-insight-num" data-count="102" data-suffix="s">102s</span>
+      <span class="cs-insight-lab">Avg. task time before redesign (→ 34s after)</span>
+    </div>
+    <div class="cs-insight">
+      <span class="cs-insight-num">4.2×</span>
+      <span class="cs-insight-lab">Average Chart → Order tab switches per trade</span>
+    </div>
+    <div class="cs-insight">
+      <span class="cs-insight-num" data-count="100" data-suffix="%">100%</span>
+      <span class="cs-insight-lab">Of interviewed traders had abandoned the platform</span>
+    </div>
+  </section>
+
+  <!-- ── Solution ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">THE SOLUTION</p>
+      <h2>One unified interface. Three color treatments. Zero compromises.</h2>
+      <p><strong>Architectural fix first:</strong> Collapsed the 3-tab navigation into a single unified trading view. Chart, order form, and active positions visible simultaneously — no more switching. Task time: <strong>102s → 34s (67% reduction).</strong> This was the original brief. The brief was solved.</p>
+      <p><strong>Then the unexpected:</strong> While validating the unified layout with CVD traders, it became clear that collapsing the interface had inadvertently solved the color-reliance problem too — every element now had spatial, positional, and shape context that didn't exist in the fragmented layout. This gave a foundation to build the full accessibility system on.</p>
+      <p><strong>Accessibility system:</strong> A single Figma design system with three simultaneous color treatments — each achieving WCAG 2.1 AA + IS 17802:2021 compliance independently:</p>
+      <ul class="cs-list">
+        <li><strong>Default Mode:</strong> Redesigned with improved contrast ratios and redundant iconographic indicators alongside every color cue.</li>
+        <li><strong>Colorblind Mode:</strong> Blue (Buy) and Yellow (Sell) — the most distinguishable pair across all CVD types. Every color-only indicator replaced with color + icon + label.</li>
+        <li><strong>Greyscale Mode:</strong> True 9:1 contrast ratio for outdoor traders and severe CVD. Filled shapes (■) for Buy, outlined shapes (□) for Sell. Zero color reliance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Working prototype ── -->
+  <section class="cs-media">
+    <p class="cs-prototype-invite">Interact with the working prototype below — <strong>try switching modes and exploring the full flow.</strong></p>
+
+    <!-- Iframe + side nudge in one row -->
+    <div class="cs-proto-layout">
+
+      <div class="cs-figma-wrap">
+        <iframe
+          class="cs-figma-proto"
+          src="https://embed.figma.com/proto/cdPuDVCvcmg6Gt86I4gwOw/Giottus-final-design?node-id=551-1119&scaling=scale-down&content-scaling=fixed&page-id=551%3A898&starting-point-node-id=551%3A1119&embed-host=share"
+          allowfullscreen
+          loading="lazy"
+          title="Giottus Futures — working prototype">
+        </iframe>
+      </div>
+
+      <!-- Accessibility button hint — right side, arrow pointing to icon -->
+      <div class="cs-proto-nudge">
+        <!-- Dashed arrow curving left-up toward the accessibility icon -->
+        <svg class="cs-proto-nudge-arrow" width="52" height="38" viewBox="0 0 52 38" fill="none" aria-hidden="true">
+          <path d="M 50 30 C 36 28, 20 16, 4 4" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="4 3" stroke-linecap="round"/>
+          <path d="M 4 4 L 13 6 M 4 4 L 6 13" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="cs-proto-nudge-dot"></div>
+        <p class="cs-proto-nudge-title">Start here</p>
+        <p class="cs-proto-nudge-text">Tap the <strong>accessibility icon</strong> at the <strong>top-right corner</strong> of the phone to switch between Default, Colorblind, and Greyscale modes.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Design decisions ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">KEY DESIGN DECISIONS</p>
+      <h2>Every decision had a reason. Here are the ones that mattered most.</h2>
+      <ul class="cs-list">
+        <li><strong>Blue/Yellow for CVD mode, not red/green inversion:</strong> Blue-yellow is the most distinguishable pair across all CVD types. Red-green alternatives only work for one CVD type. This choice works for all three.</li>
+        <li><strong>Redundant non-color indicators on every critical element:</strong> Every Buy/Sell action has: a color, an icon (arrow), a text label, AND a shape treatment. A user who perceives zero color can still trade safely using shape + text alone.</li>
+        <li><strong>Mode selector persistent across sessions:</strong> The preference is stored in localStorage. A CVD trader sets it once — then it's invisible infrastructure forever.</li>
+        <li><strong>Single Figma component per element, 3 variant states:</strong> Engineer implementation uses CSS custom properties. One line of JS on the root element switches all 3 color modes simultaneously. Zero duplicate code, zero maintenance overhead.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Outcomes ── -->
+  <section class="cs-text cs-text--accent-bg">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">OUTCOMES</p>
+      <h2>Numbers that moved. A market that opened.</h2>
+      <p>Validated against the original interface in a structured usability test — measuring task completion time, error rate, and trader confidence across both accessibility and efficiency dimensions.</p>
+      <div class="cs-impact">
+        <div class="impact-card">
+          <h3>4 Cr+</h3>
+          <p>CVD users<br>now able to trade</p>
+        </div>
+        <div class="impact-card">
+          <h3>67%</h3>
+          <p>Faster task time<br><small>102s → 34s</small></p>
+        </div>
+        <div class="impact-card">
+          <h3>0%</h3>
+          <p>Order abandonment<br><small>down from 15%</small></p>
+        </div>
+        <div class="impact-card">
+          <h3>WCAG AA</h3>
+          <p>100% pass rate<br><small>First in Indian fintech</small></p>
+        </div>
+      </div>
+      <p style="margin-top:2rem">Beyond the numbers: this project established a competitive moat that no other Indian crypto exchange has. Accessibility as a business strategy, not a compliance checkbox.</p>
+    </div>
+  </section>
+
+  <!-- ── What I'd do differently ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">RETROSPECT</p>
+      <h2>What I'd do differently.</h2>
+      <div class="cs-retrospect">
+        <p><strong>Ship the mode switch, then build toward invisible infrastructure.</strong> The manual toggle works — a CVD user sets it once and forgets it. But the architecturally superior solution is OS-level detection: read <code>prefers-color-scheme</code> and <code>forced-colors</code>, then extend those signals to infer CVD preference at the system level. I'd push for this from day one rather than treating it as a phase-two item.</p>
+        <p style="margin-top:1rem">I'd also run a second round of research specifically with mobile traders. The 3-mode system was designed and validated on desktop. Futures trading on mobile is a different cognitive load — smaller targets, ambient light variability, faster context-switching. The greyscale mode in particular has contrast assumptions that break down on OLED screens outdoors. That's a known gap I'd close before shipping v2.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Next ── -->
+  <footer class="cs-footer">
+    <p class="cs-footer-label">Next Project</p>
+    <a href="tokendrift.html" class="cs-next-link">TokenDrift VS Code Extension →</a>
+    <div class="cs-footer-links" style="margin-top:2.5rem;display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;">
+      <a href="https://github.com/Designer-nisha" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:var(--sub);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--sub)'">GitHub</a>
+      <a href="https://www.behance.net/nishanthinidesign" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:var(--sub);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--sub)'">Behance</a>
+      <a href="https://www.linkedin.com/in/thedesignernisha" target="_blank" rel="noopener" style="font-size:.78rem;font-weight:700;color:var(--sub);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--sub)'">LinkedIn</a>
+    </div>
+  </footer>
+
+  </div><!-- /barba-container -->
+  </div><!-- /barba-wrapper -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TokenDrift — VS Code Extension | Nishanthini</title>
+  <meta name="description" content="A VS Code extension that detects hard-coded design values as you type, maps them to your token system, and prevents drift from reaching production.">
+  <!-- OG -->
+  <meta property="og:title" content="TokenDrift — Nishanthini S">
+  <meta property="og:description" content="VS Code extension for real-time design token drift detection. TypeScript, DTCG W3C standard.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%23FF7A3D'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23fff'>N</text></svg>">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cs-page">
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- Page transition overlays -->
+  <div id="pt-main"></div>
+  <div id="pt-line"></div>
+
+  <!-- Scroll progress -->
+  <div id="scroll-bar"></div>
+
+  <!-- Nav -->
+  <nav class="nav nav--light" id="nav">
+    <a href="index.html" class="logo">Nishanthini.</a>
+    <div class="nav-links">
+      <a href="index.html#work"  class="nav-link">Work</a>
+      <a href="index.html#about" class="nav-link">About</a>
+      <a href="mailto:thedesignernisha@gmail.com" class="nav-link nav-cta">Contact</a>
+      <a href="https://www.linkedin.com/in/thedesignernisha" target="_blank" rel="noopener" class="nav-linkedin" aria-label="LinkedIn">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+      </a>
+      <a href="assets/resume.pdf" class="nav-resume" download>
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none">
+          <path d="M8 2v9M4 8l4 4 4-4M2 14h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Resume
+      </a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+        </svg>
+        <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+          <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Barba.js wrapper -->
+  <div data-barba="wrapper">
+  <div data-barba="container" data-barba-namespace="tokendrift">
+
+  <!-- ── Hero ── -->
+  <header class="cs-hero">
+    <div class="cs-hero-inner">
+      <p class="cs-eyebrow">VS CODE EXTENSION · TYPESCRIPT · DESIGN SYSTEMS · DEVELOPER TOOLING</p>
+      <h1 class="cs-title">
+        <span class="clip-wrap"><span class="clip-inner">TokenDrift — Catching Design</span></span>
+        <span class="clip-wrap"><span class="clip-inner">Token Drift in Real-Time</span></span>
+      </h1>
+      <p class="cs-subtitle">A VS Code extension that detects hard-coded design values as you type, maps them to your token system, and prevents drift from ever reaching production.</p>
+      <div class="cs-meta">
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Type</span>
+          <span class="cs-meta-val">Developer Tool / Extension</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Stack</span>
+          <span class="cs-meta-val">TypeScript · VS Code API</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Token Format</span>
+          <span class="cs-meta-val">DTCG W3C Standard</span>
+        </div>
+        <div class="cs-meta-item">
+          <span class="cs-meta-label">Source</span>
+          <span class="cs-meta-val"><a href="https://github.com/Designer-nisha/tokendrift" target="_blank" rel="noopener" style="color:var(--accent)">GitHub →</a></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero visual ── -->
+  <section class="cs-media cs-media--full">
+    <div class="cs-img-card cs-img-card--vscode">
+      <img src="assets/tokendrift-mockup.svg" alt="TokenDrift in VS Code" class="cs-img">
+    </div>
+  </section>
+
+  <!-- ── Context ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">THE PROBLEM</p>
+      <h2>Design tokens exist. Engineers ignore them. Nobody catches it until it's too late.</h2>
+      <p>Every modern design system has a token library — a single source of truth for colors, spacing, and typography. The promise: change one token, update the entire product.</p>
+      <p>In practice, this breaks constantly. Under deadline pressure, engineers write <code>#2563eb</code> instead of <code>var(--color-primary)</code>. They type <code>16px</code> instead of <code>var(--spacing-md)</code>. Each instance is a small divergence — but they compound. Within months, a codebase has hundreds of drift values, and the design system becomes increasingly irrelevant.</p>
+      <p>The problem wasn't carelessness. The problem was <strong>no feedback loop.</strong> Across 40 developers working on 12 products, this produces 500+ inconsistent design values — and a design system that's technically live but practically ignored.</p>
+    </div>
+  </section>
+
+  <!-- ── Problem Mock ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">THE DISCONNECT</p>
+      <h2>The tokens existed. Nobody used them.</h2>
+      <p>The token file was there. The CSS was there. But there was no link between them — no signal, no warning, no bridge. Engineers wrote what they knew.</p>
+      <div class="td-prob-wrap" style="grid-template-columns:1fr 1fr;border-right:none;">
+        <div class="td-prob-panel" style="border-right:1px dashed rgba(255,255,255,0.07);">
+          <div class="td-prob-tab">styles.css</div>
+          <div class="td-prob-code"><pre><span class="td-ln">1</span><span class="td-c">.btn-primary</span> {
+<span class="td-ln">2</span>  color: <span class="td-bad">#2563eb</span>;
+<span class="td-ln">3</span>  padding: <span class="td-bad">16px</span> <span class="td-bad">24px</span>;
+<span class="td-ln">4</span>  border-radius: <span class="td-bad">8px</span>;
+<span class="td-ln">5</span>  background: <span class="td-bad">#ffffff</span>;
+<span class="td-ln">6</span>}
+<span class="td-ln">7</span>
+<span class="td-ln">8</span><span class="td-cmt">/* no warnings. no hints. */</span>
+<span class="td-ln">9</span><span class="td-cmt">/* just values, drifting free. */</span></pre></div>
+        </div>
+        <div class="td-prob-panel">
+          <div class="td-prob-tab">tokens.dtcg.json</div>
+          <div class="td-prob-code"><pre><span class="td-ln">1</span>{
+<span class="td-ln">2</span>  <span class="td-jkey">"color-primary"</span>: {
+<span class="td-ln">3</span>    <span class="td-jkey">"$value"</span>: <span class="td-jstr">"#2563eb"</span>,
+<span class="td-ln">4</span>    <span class="td-jkey">"$type"</span>: <span class="td-jstr">"color"</span>
+<span class="td-ln">5</span>  },
+<span class="td-ln">6</span>  <span class="td-jkey">"spacing-md"</span>: {
+<span class="td-ln">7</span>    <span class="td-jkey">"$value"</span>: <span class="td-jstr">"16px"</span>,
+<span class="td-ln">8</span>    <span class="td-jkey">"$type"</span>: <span class="td-jstr">"dimension"</span>
+<span class="td-ln">9</span>  }
+<span class="td-ln">10</span>}
+<span class="td-ln">11</span>
+<span class="td-ln">12</span><span class="td-cmt">// tokens defined. ignored.</span></pre></div>
+        </div>
+      </div>
+      <p class="td-prob-cap">Yellow = value has a token match · Blue = new token candidate · No extension = zero feedback loop.</p>
+    </div>
+  </section>
+
+  <!-- ── Pull Quote ── -->
+  <section class="cs-pull-quote">
+    <blockquote>40 engineers. 12 products. 500+ inconsistent values. Not a people problem — <em>a systems problem.</em></blockquote>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section class="cs-text cs-text--accent-bg">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">HOW IT WORKS</p>
+      <h2>Three layers of intelligence — one extension.</h2>
+      <p>TokenDrift operates as a VS Code Language Server watching CSS, SCSS, TypeScript, and JSX files in real-time. It loads your <code>tokens.dtcg.json</code> and builds a reverse-lookup index — from raw value back to token name.</p>
+      <div class="td-features">
+        <div class="td-feature">
+          <div class="td-badge td-badge--yellow">Yellow underline</div>
+          <h3>Token match — quick fix available</h3>
+          <p>The hard-coded value exactly matches an existing token. Hover to see which token it maps to. Press <code>Ctrl+.</code> to replace with <code>var(--token-name)</code> in one keystroke.</p>
+        </div>
+        <div class="td-feature">
+          <div class="td-badge td-badge--blue">Blue underline</div>
+          <h3>New token suggestion</h3>
+          <p>The value doesn't match any token but appears above the configured threshold (default: 3×). TokenDrift suggests creating a new token and auto-generates the DTCG entry.</p>
+        </div>
+        <div class="td-feature">
+          <div class="td-badge td-badge--green">CI Gate</div>
+          <h3>Pipeline enforcement at merge time</h3>
+          <p>A GitHub Actions step that runs the same analysis on every PR. Configurable: fail above a drift score threshold, or post a comment summary. Design system compliance becomes a hard gate.</p>
+        </div>
+        <div class="td-feature">
+          <div class="td-badge td-badge--purple">Dashboard</div>
+          <h3>Live team drift score</h3>
+          <p>A lightweight vanilla HTML dashboard showing current drift score, most-violated tokens, file-level breakdown, and trend over time. No external dependencies — just a static file served from your repo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Interactive Demo ── -->
+  <section class="td-demo-section">
+    <div class="td-demo-inner">
+      <p class="cs-section-label">TRY IT LIVE</p>
+      <h2>See it catch drift in real-time.</h2>
+      <p>Hover any underlined value to see what token it maps to. Click <strong>Quick Fix</strong> to replace it — watch the drift score drop.</p>
+      <div class="td-demo-wrap">
+        <!-- Editor -->
+        <div class="td-editor" id="td-editor">
+          <div class="td-editor-bar">
+            <div class="td-editor-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="td-editor-tabs">
+              <div class="td-editor-tab active">styles.css</div>
+            </div>
+          </div>
+          <div class="td-editor-body">
+            <div class="td-gutter">
+              <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+              <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+              <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            </div>
+            <div class="td-code-pre" id="td-code-pre">.<span class="td-c">btn-primary</span> {
+  <span class="td-sel">color</span>: <span class="td-drift yellow" id="td1" data-token="--color-primary" data-type="yellow" data-fix="var(--color-primary)">#2563eb</span>;
+  <span class="td-sel">padding</span>: <span class="td-drift yellow" id="td2" data-token="--spacing-md" data-type="yellow" data-fix="var(--spacing-md)">16px</span> <span class="td-drift yellow" id="td3" data-token="--spacing-lg" data-type="yellow" data-fix="var(--spacing-lg)">24px</span>;
+  <span class="td-sel">border-radius</span>: <span class="td-drift blue" id="td4" data-token="--radius-sm" data-type="blue" data-fix="var(--radius-sm)">8px</span>;
+  <span class="td-sel">background</span>: <span class="td-drift yellow" id="td5" data-token="--color-white" data-type="yellow" data-fix="var(--color-white)">#ffffff</span>;
+}
+
+.<span class="td-c">btn-primary</span>:<span class="td-c">hover</span> {
+  <span class="td-sel">opacity</span>: <span class="td-str">0.9</span>;
+  <span class="td-sel">transform</span>: <span class="td-str">translateY(-1px)</span>;
+}
+
+.<span class="td-c">btn-secondary</span> {
+  <span class="td-sel">color</span>: <span class="td-str">var(--color-secondary)</span>;
+  <span class="td-sel">padding</span>: <span class="td-str">var(--spacing-sm)</span>;
+}</div>
+          </div>
+        </div>
+        <!-- Score Panel -->
+        <div class="td-score-panel" id="td-score-panel">
+          <div class="td-score-label">Drift Score</div>
+          <div class="td-score-ring" id="td-score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="td-score-ring-bg" cx="50" cy="50" r="40" stroke-width="7"/>
+              <circle class="td-score-ring-fill" id="td-ring-fill" cx="50" cy="50" r="40" stroke-width="7"
+                stroke-dasharray="251.3" stroke-dashoffset="145.7"/>
+            </svg>
+            <span class="td-score-num" id="td-score-num">42</span>
+          </div>
+          <div class="td-score-sublabel">out of 100 (lower = better)</div>
+          <ul class="td-issues" id="td-issues">
+            <li id="ti1"><span class="td-dot"></span>#2563eb → token match</li>
+            <li id="ti2"><span class="td-dot"></span>16px → token match</li>
+            <li id="ti3"><span class="td-dot"></span>24px → token match</li>
+            <li id="ti4"><span class="td-dot blue"></span>8px → new token?</li>
+            <li id="ti5"><span class="td-dot"></span>#ffffff → token match</li>
+          </ul>
+          <div class="td-clean" id="td-clean">✓ No drift detected</div>
+          <button class="td-reset-btn" id="td-reset">↺ Reset demo</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Floating tooltip -->
+  <div class="td-tooltip" id="td-tooltip" style="display:none;"></div>
+
+  <!-- ── Architecture ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">ARCHITECTURE</p>
+      <h2>Built on the W3C standard. Designed for real engineering workflows.</h2>
+      <p>TokenDrift uses the <strong>DTCG (Design Token Community Group) format</strong> — the W3C proposed standard for design token interoperability. It works natively with:</p>
+      <ul class="cs-list">
+        <li><strong>Figma Tokens</strong> — Export directly from Figma in DTCG format</li>
+        <li><strong>Style Dictionary</strong> — The most widely used design token build tool</li>
+        <li><strong>Theo (Salesforce)</strong> — Enterprise-scale token system</li>
+        <li><strong>Custom token files</strong> — Any <code>tokens.dtcg.json</code> following the W3C spec</li>
+      </ul>
+      <p>On large codebases with 500+ token definitions, analysis runs in under 200ms per file. Designed to never slow down the editor.</p>
+    </div>
+  </section>
+
+  <!-- ── Architecture Pipeline Diagram ── -->
+  <section class="cs-media cs-media--full">
+    <div class="cs-text-inner" style="max-width:820px;">
+      <div class="td-pipeline" id="td-pipeline">
+        <div class="td-pipe-row td-pipe-row--top">
+          <div class="td-pipe-box td-pipe-box--file">
+            <div class="td-pipe-icon">📄</div>
+            <div class="td-pipe-label">tokens.dtcg.json</div>
+            <div class="td-pipe-sub">W3C Token Source</div>
+          </div>
+          <div class="td-pipe-arrow td-pipe-arrow--h" id="pa1">
+            <svg width="60" height="16" viewBox="0 0 60 16"><path class="td-arrow-path" d="M0 8 L52 8" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="54" stroke-dashoffset="54" stroke-linecap="round"/><path d="M48 4 L56 8 L48 12" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa1h"/></svg>
+          </div>
+          <div class="td-pipe-box td-pipe-box--server">
+            <div class="td-pipe-icon">⚙️</div>
+            <div class="td-pipe-label">Language Server</div>
+            <div class="td-pipe-sub">Reverse-lookup index</div>
+          </div>
+          <div class="td-pipe-arrow td-pipe-arrow--h" id="pa2">
+            <svg width="60" height="16" viewBox="0 0 60 16"><path class="td-arrow-path" d="M0 8 L52 8" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="54" stroke-dashoffset="54" stroke-linecap="round"/><path d="M48 4 L56 8 L48 12" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa2h"/></svg>
+          </div>
+          <div class="td-pipe-box td-pipe-box--file">
+            <div class="td-pipe-icon">📝</div>
+            <div class="td-pipe-label">CSS / TS / JSX</div>
+            <div class="td-pipe-sub">Files being edited</div>
+          </div>
+        </div>
+        <div class="td-pipe-row td-pipe-row--mid">
+          <div class="td-pipe-arrow td-pipe-arrow--v" id="pa3">
+            <svg width="16" height="48" viewBox="0 0 16 48"><path class="td-arrow-path" d="M8 0 L8 40" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="42" stroke-dashoffset="42" stroke-linecap="round"/><path d="M4 36 L8 44 L12 36" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa3h"/></svg>
+          </div>
+        </div>
+        <div class="td-pipe-row td-pipe-row--engine">
+          <div class="td-pipe-box td-pipe-box--engine">
+            <div class="td-pipe-icon">🔍</div>
+            <div class="td-pipe-label">Diagnostic Engine</div>
+            <div class="td-pipe-sub">Value → token matching at &lt;200ms/file</div>
+          </div>
+        </div>
+        <div class="td-pipe-row td-pipe-row--outputs">
+          <div class="td-pipe-arrow td-pipe-arrow--v td-pipe-arrow--left" id="pa4">
+            <svg width="16" height="48" viewBox="0 0 16 48"><path class="td-arrow-path" d="M8 0 L8 40" stroke="#F8C555" stroke-width="1.5" stroke-dasharray="42" stroke-dashoffset="42" stroke-linecap="round"/><path d="M4 36 L8 44 L12 36" fill="none" stroke="#F8C555" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa4h"/></svg>
+          </div>
+          <div class="td-pipe-arrow td-pipe-arrow--v td-pipe-arrow--mid" id="pa5">
+            <svg width="16" height="48" viewBox="0 0 16 48"><path class="td-arrow-path" d="M8 0 L8 40" stroke="#569CD6" stroke-width="1.5" stroke-dasharray="42" stroke-dashoffset="42" stroke-linecap="round"/><path d="M4 36 L8 44 L12 36" fill="none" stroke="#569CD6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa5h"/></svg>
+          </div>
+          <div class="td-pipe-arrow td-pipe-arrow--v td-pipe-arrow--right" id="pa6">
+            <svg width="16" height="48" viewBox="0 0 16 48"><path class="td-arrow-path" d="M8 0 L8 40" stroke="var(--green)" stroke-width="1.5" stroke-dasharray="42" stroke-dashoffset="42" stroke-linecap="round"/><path d="M4 36 L8 44 L12 36" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0" id="pa6h"/></svg>
+          </div>
+        </div>
+        <div class="td-pipe-row td-pipe-row--results">
+          <div class="td-pipe-box td-pipe-box--yellow">
+            <div class="td-pipe-badge" style="background:#C88A00;color:#fff;">Yellow</div>
+            <div class="td-pipe-label">Token Match</div>
+            <div class="td-pipe-sub">Quick-fix to var()</div>
+          </div>
+          <div class="td-pipe-box td-pipe-box--blue">
+            <div class="td-pipe-badge" style="background:#3B82F6;color:#fff;">Blue</div>
+            <div class="td-pipe-label">New Token?</div>
+            <div class="td-pipe-sub">Appears 3+ times</div>
+          </div>
+          <div class="td-pipe-box td-pipe-box--green">
+            <div class="td-pipe-badge" style="background:var(--green);color:#000;">Gate</div>
+            <div class="td-pipe-label">CI / PR Check</div>
+            <div class="td-pipe-sub">Fails above threshold</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Design decisions ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">DESIGN DECISIONS</p>
+      <h2>Why yellow and blue? And other decisions that matter.</h2>
+      <ul class="cs-list">
+        <li><strong>Yellow for matches, not red:</strong> Red in VS Code implies broken code. A token match isn't broken — it's improvable. Yellow (warning) communicates the right severity: worth fixing, not urgent. Red would cause alert fatigue.</li>
+        <li><strong>Blue for suggestions, not yellow:</strong> Suggestions are speculative — "this might become a token." Blue in VS Code's diagnostic system means informational. Engineers already understand this convention.</li>
+        <li><strong>DTCG format over custom JSON:</strong> Using the W3C standard means TokenDrift works with every existing toolchain — and will continue to as the ecosystem evolves. Build on standards, not lock-in.</li>
+        <li><strong>Drift score, not just a lint count:</strong> A count of violations is meaningless without context. A score (0–100) gives teams a benchmark to improve against, enables trending, and creates a shared definition of "good" across engineering and design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── Stack ── -->
+  <section class="cs-text cs-text--accent-bg">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">TECH STACK</p>
+      <h2>The full toolkit.</h2>
+      <div class="cs-stack-tags">
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">VS Code Extension API</span>
+        <span class="stack-tag">VS Code Language Server Protocol</span>
+        <span class="stack-tag">GitHub Actions</span>
+        <span class="stack-tag">DTCG W3C Format</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Vanilla Dashboard (HTML/CSS)</span>
+        <span class="stack-tag">Jest (unit tests)</span>
+      </div>
+      <div style="margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap;">
+        <a href="https://github.com/Designer-nisha/tokendrift" target="_blank" rel="noopener" class="btn-outline" style="display:inline-flex;align-items:center;gap:.6rem;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What I'd do differently ── -->
+  <section class="cs-text">
+    <div class="cs-text-inner">
+      <p class="cs-section-label">RETROSPECT</p>
+      <h2>What I'd do differently.</h2>
+      <div class="cs-retrospect">
+        <p><strong>Talk to engineers before building, not after.</strong> I designed the threshold defaults (3× repetition before suggesting a new token) based on intuition and a small internal test. After shipping, I discovered the defaults were too aggressive — engineers were seeing blue suggestions on values they legitimately didn't intend to tokenize. The noise eroded trust in the extension fast.</p>
+        <p style="margin-top:1rem">The fix was a settings key (<code>tokendrift.suggestionThreshold</code>) which solved it technically — but if I'd run 5 engineer interviews before writing a line of TypeScript, I'd have calibrated it correctly from the start. The lesson: developer tools have power users with strong opinions about noise. Their signal-to-noise tolerance is much lower than typical UX testers. That's a research finding, not an assumption.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Current Workings ── -->
+  <footer class="td-cw-footer">
+    <p class="td-cw-label">Current Workings</p>
+    <h2 class="td-cw-title">What I'm building right now.</h2>
+    <div class="td-cw-grid">
+      <div class="td-cw-card td-cw-card--live">
+        <div class="td-cw-status">
+          <div class="td-cw-dot td-cw-dot--live"></div>
+          Live · Open Source
+        </div>
+        <div class="td-cw-card-title">TokenDrift</div>
+        <div class="td-cw-card-desc">VS Code extension that catches design token drift as you type. DTCG W3C standard.</div>
+        <a href="https://github.com/Designer-nisha/tokendrift" target="_blank" rel="noopener" class="td-cw-btn td-cw-btn--active">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="td-cw-card">
+        <div class="td-cw-status">
+          <div class="td-cw-dot"></div>
+          In Progress
+        </div>
+        <div class="td-cw-card-title">Chennai Metro UX</div>
+        <div class="td-cw-card-desc">Redesigning the Chennai Metro app experience — wayfinding, accessibility, real-time updates.</div>
+        <button class="td-cw-btn td-cw-btn--disabled" disabled>Coming Soon</button>
+      </div>
+      <div class="td-cw-card">
+        <div class="td-cw-status">
+          <div class="td-cw-dot"></div>
+          In Progress
+        </div>
+        <div class="td-cw-card-title">Sanchar Saathi</div>
+        <div class="td-cw-card-desc">Government telecom fraud prevention portal — simplifying complex reporting flows for everyday citizens.</div>
+        <button class="td-cw-btn td-cw-btn--disabled" disabled>Coming Soon</button>
+      </div>
+    </div>
+  </footer>
+
+  </div><!-- /barba-container -->
+  </div><!-- /barba-wrapper -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.32/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
